@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tekur Sew Production | High-End Event & Podcast Visual Media</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0A0A0C',
+                        cardBg: '#121215',
+                        cardHover: '#1A1A1F',
+                        accentAmber: '#F59E0B',
+                        accentCyan: '#06B6D4',
+                        mutedText: '#9CA3AF'
+                    },
+                    fontFamily: {
+                        heading: ['Syne', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A0A0C;
+            color: #FFFFFF;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Syne', sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #F59E0B 0%, #06B6D4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-border {
+            position: relative;
+        }
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            background: linear-gradient(135deg, rgba(245,158,11,0.5), rgba(6,182,212,0.2), rgba(255,255,255,0.05));
+            border-radius: inherit;
+            z-index: -1;
+        }
+        .glass-nav {
+            background: rgba(10, 10, 12, 0.85);
+            backdrop-filter: blur(16px);
+        }
+        .glass-card {
+            background: rgba(18, 18, 21, 0.7);
+            backdrop-filter: blur(12px);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0A0C;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #27272A;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #F59E0B;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-amber-500 selection:text-black">
+
+    <!-- Header Navigation -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-zinc-800/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#hero" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-cyan-500 flex items-center justify-center font-heading font-extrabold text-black text-xl shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform">
+                    T
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-heading font-bold text-lg sm:text-xl tracking-wider text-white group-hover:text-amber-400 transition-colors">TEKUR SEW PRODUCTION</span>
+                    <span class="text-[10px] tracking-widest text-zinc-400 uppercase font-medium">Events & Studio Visuals</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#hero" class="nav-link text-zinc-300 hover:text-amber-400 transition-colors py-1">Home</a>
+                <a href="#specialties" class="nav-link text-zinc-300 hover:text-amber-400 transition-colors py-1">Services</a>
+                <a href="#portfolio" class="nav-link text-zinc-300 hover:text-amber-400 transition-colors py-1">Portfolio</a>
+                <a href="#gear" class="nav-link text-zinc-300 hover:text-amber-400 transition-colors py-1">Equipment</a>
+                <a href="#about" class="nav-link text-zinc-300 hover:text-amber-400 transition-colors py-1">About</a>
+                <a href="#contact" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-zinc-950 font-bold transition-all shadow-md shadow-amber-500/20 hover:scale-105">
+                    Contact Us
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden text-zinc-300 hover:text-white p-2 focus:outline-none" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-zinc-950/98 border-b border-zinc-800 px-6 py-6 space-y-4 shadow-2xl">
+            <a href="#hero" class="block text-zinc-300 hover:text-amber-400 py-2 font-medium border-b border-zinc-800/50">Home</a>
+            <a href="#specialties" class="block text-zinc-300 hover:text-amber-400 py-2 font-medium border-b border-zinc-800/50">Services</a>
+            <a href="#portfolio" class="block text-zinc-300 hover:text-amber-400 py-2 font-medium border-b border-zinc-800/50">Portfolio</a>
+            <a href="#gear" class="block text-zinc-300 hover:text-amber-400 py-2 font-medium border-b border-zinc-800/50">Equipment</a>
+            <a href="#about" class="block text-zinc-300 hover:text-amber-400 py-2 font-medium border-b border-zinc-800/50">About Us</a>
+            <a href="#contact" class="block text-center w-full mt-4 py-3 rounded-xl bg-amber-500 text-zinc-950 font-bold">
+                Contact Us
+            </a>
+        </div>
+    </header>
+
+    <!-- Page 1: Home / Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center pt-28 pb-20 overflow-hidden">
+        <!-- Ambient Glowing Background Spheres -->
+        <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+        
+        <!-- Grid Pattern Overlay -->
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#1f1f23_1px,transparent_1px),linear-gradient(to_bottom,#1f1f23_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-20 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                <!-- Hero Left Content -->
+                <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-zinc-900/90 border border-zinc-700/80 text-xs font-semibold text-amber-400 uppercase tracking-widest backdrop-blur-md">
+                        <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+                        <span class="w-2 h-2 rounded-full bg-amber-400 -ml-4"></span>
+                        <span>Official Visual Media Studio</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold font-heading tracking-tight leading-[1.08]">
+                        Capturing Energy & Sound at <span class="gradient-text">Tekur Sew Production</span>
+                    </h1>
+
+                    <p class="text-zinc-400 text-lg sm:text-xl max-w-2xl font-normal leading-relaxed mx-auto lg:mx-0">
+                        We specialize in cinematic live event coverage and high-definition studio podcast visual production. Elevating creators, concerts, and brands with dynamic photography.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#portfolio" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold text-base transition-all shadow-lg shadow-amber-500/25 flex items-center justify-center space-x-2 group">
+                            <span>Explore Portfolio</span>
+                            <i class="fa-solid fa-arrow-right text-sm group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-white font-semibold text-base transition-all flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-phone text-amber-400"></i>
+                            <span>Get In Touch</span>
+                        </a>
+                    </div>
+
+                    <!-- Quick Highlights Badges -->
+                    <div class="grid grid-cols-3 gap-4 pt-8 border-t border-zinc-800/80 max-w-lg mx-auto lg:mx-0">
+                        <div class="bg-zinc-900/40 p-3 rounded-xl border border-zinc-800/60">
+                            <div class="font-heading text-2xl sm:text-3xl font-extrabold text-white">100+</div>
+                            <div class="text-xs text-zinc-400 mt-1">Live Stage Events</div>
+                        </div>
+                        <div class="bg-zinc-900/40 p-3 rounded-xl border border-zinc-800/60">
+                            <div class="font-heading text-2xl sm:text-3xl font-extrabold text-cyan-400">250+</div>
+                            <div class="text-xs text-zinc-400 mt-1">Podcast Episodes</div>
+                        </div>
+                        <div class="bg-zinc-900/40 p-3 rounded-xl border border-zinc-800/60">
+                            <div class="font-heading text-2xl sm:text-3xl font-extrabold text-amber-400">4K / 8K</div>
+                            <div class="text-xs text-zinc-400 mt-1">RAW Editing</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Right Media Feature -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl bg-zinc-900 group gradient-border">
+                        <img id="hero-img" src="https://i.imgur.com/LZuiJvf.jpg" 
+                             alt="Tekur Sew Production Official Photography Showcase" 
+                             class="w-full h-[520px] object-cover transition-transform duration-700 group-hover:scale-105">
+                        
+                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent"></div>
+
+                        <!-- Badge Overlay -->
+                        <div class="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-zinc-700 text-xs text-white font-medium flex items-center space-x-2">
+                            <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                            <span>Featured Showcase</span>
+                        </div>
+
+                        <!-- Bottom Glass Card Overlay -->
+                        <div class="absolute bottom-4 left-4 right-4 p-5 rounded-xl bg-zinc-950/85 backdrop-blur-md border border-zinc-800 flex items-center justify-between">
+                            <div class="space-y-0.5">
+                                <span class="text-[10px] font-bold tracking-widest text-amber-400 uppercase">Official Portfolio</span>
+                                <h4 class="font-heading font-bold text-base text-white">Event Photography Showcase</h4>
+                                <p class="text-xs text-zinc-400">Tekur Sew Production</p>
+                            </div>
+                            <button onclick="openLightbox('https://i.imgur.com/LZuiJvf.jpg', 'Event Photography Showcase', 'Captured by Tekur Sew Production')" class="w-10 h-10 rounded-full bg-amber-500 text-black flex items-center justify-center hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-expand text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services / Specialties Overview Section -->
+    <section id="specialties" class="py-24 bg-zinc-950/90 border-t border-b border-zinc-800/80 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center space-y-3 mb-16">
+                <span class="text-amber-400 text-xs font-bold uppercase tracking-widest">Our Expertise</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold font-heading">Tailored Visual Services</h2>
+                <p class="text-zinc-400 text-sm sm:text-base max-w-2xl mx-auto">From crowded event venues to studio podcast soundstages, we bring professional equipment and visual precision.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1: Event Photography -->
+                <div class="rounded-2xl bg-cardBg border border-zinc-800 p-6 hover:border-amber-500/50 hover:bg-zinc-900/60 transition-all duration-300 flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <h3 class="text-xl font-bold font-heading text-white">Live Event Coverage</h3>
+                        <p class="text-zinc-400 text-xs leading-relaxed">
+                            Candid crowd reactions, stage keynotes, dynamic performer shots, and high-energy gatherings.
+                        </p>
+                    </div>
+                    <ul class="mt-6 space-y-2 text-xs text-zinc-300 border-t border-zinc-800/80 pt-4">
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-amber-400 text-[10px]"></i> <span>Fast Same-Day Teasers</span></li>
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-amber-400 text-[10px]"></i> <span>Stage & Venue Coverage</span></li>
+                    </ul>
+                </div>
+
+                <!-- Card 2: Podcast Media -->
+                <div class="rounded-2xl bg-cardBg border border-zinc-800 p-6 hover:border-cyan-500/50 hover:bg-zinc-900/60 transition-all duration-300 flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-microphone"></i>
+                        </div>
+                        <h3 class="text-xl font-bold font-heading text-white">Podcast Production</h3>
+                        <p class="text-zinc-400 text-xs leading-relaxed">
+                            Crisp behind-the-mic portraits, studio ambient lighting setup, guest angles, and social media promo covers.
+                        </p>
+                    </div>
+                    <ul class="mt-6 space-y-2 text-xs text-zinc-300 border-t border-zinc-800/80 pt-4">
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-cyan-400 text-[10px]"></i> <span>Multi-Angle Stills</span></li>
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-cyan-400 text-[10px]"></i> <span>Social Media Cover Layouts</span></li>
+                    </ul>
+                </div>
+
+                <!-- Card 3: Creator Portraits -->
+                <div class="rounded-2xl bg-cardBg border border-zinc-800 p-6 hover:border-amber-500/50 hover:bg-zinc-900/60 transition-all duration-300 flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-user-ninja"></i>
+                        </div>
+                        <h3 class="text-xl font-bold font-heading text-white">Press Kits & Portraits</h3>
+                        <p class="text-zinc-400 text-xs leading-relaxed">
+                            High-end artist headshots, press release visuals, celebratory shoots, and personal brand photos.
+                        </p>
+                    </div>
+                    <ul class="mt-6 space-y-2 text-xs text-zinc-300 border-t border-zinc-800/80 pt-4">
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-amber-400 text-[10px]"></i> <span>Studio & Outdoor Retouching</span></li>
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-amber-400 text-[10px]"></i> <span>Full Media Rights</span></li>
+                    </ul>
+                </div>
+
+                <!-- Card 4: Post-Production -->
+                <div class="rounded-2xl bg-cardBg border border-zinc-800 p-6 hover:border-cyan-500/50 hover:bg-zinc-900/60 transition-all duration-300 flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-sliders"></i>
+                        </div>
+                        <h3 class="text-xl font-bold font-heading text-white">Color & Post-Grading</h3>
+                        <p class="text-zinc-400 text-xs leading-relaxed">
+                            Custom color palettes, skin-tone optimization, retouching, and atmospheric lighting enhancement.
+                        </p>
+                    </div>
+                    <ul class="mt-6 space-y-2 text-xs text-zinc-300 border-t border-zinc-800/80 pt-4">
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-cyan-400 text-[10px]"></i> <span>High-Res Digital Delivery</span></li>
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-cyan-400 text-[10px]"></i> <span>Social Aspect Ratios</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 2: Custom Portfolio Gallery -->
+    <section id="portfolio" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div class="space-y-3">
+                    <span class="text-amber-400 text-xs font-bold uppercase tracking-widest">Our Work</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold font-heading">Featured Portfolio Gallery</h2>
+                    <p class="text-zinc-400 text-sm sm:text-base max-w-xl">Browse our official photography showcases.</p>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="flex flex-wrap gap-2 mt-6 md:mt-0" id="gallery-filters">
+                    <button onclick="filterGallery('all')" class="filter-btn active px-4 py-2 rounded-xl text-xs font-semibold bg-amber-500 text-black transition-all">All</button>
+                    <button onclick="filterGallery('events')" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-800 transition-all">Events</button>
+                    <button onclick="filterGallery('portraits')" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-800 transition-all">Portraits & Celebration</button>
+                    <button onclick="filterGallery('culture')" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-800 transition-all">Cultural & Atmosphere</button>
+                </div>
+            </div>
+
+            <!-- Portfolio Grid with Imgur Photos Only -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-2 gap-8" id="portfolio-grid">
+                
+                <!-- Imgur Photo 1 -->
+                <div class="gallery-item events relative rounded-2xl overflow-hidden bg-zinc-900 border border-zinc-800 group cursor-pointer h-[480px]" onclick="openLightboxIndex(0)">
+                    <img src="https://i.imgur.com/LZuiJvf.jpg" alt="Tekur Sew Production Showcase 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
+                    <div class="absolute bottom-0 inset-x-0 p-6 flex flex-col justify-end">
+                        <span class="text-amber-400 text-[10px] font-bold uppercase tracking-wider">Live Events</span>
+                        <h3 class="font-heading font-bold text-2xl text-white mt-1">Featured Event Photography</h3>
+                        <p class="text-xs text-zinc-400 mt-1 opacity-0 group-hover:opacity-100 transition-opacity">Captured by Tekur Sew Production</p>
+                    </div>
+                </div>
+
+                <!-- Imgur Photo 2 -->
+                <div class="gallery-item events relative rounded-2xl overflow-hidden bg-zinc-900 border border-zinc-800 group cursor-pointer h-[480px]" onclick="openLightboxIndex(1)">
+                    <img src="https://i.imgur.com/fgRKLX7.jpg" alt="Tekur Sew Production Showcase 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
+                    <div class="absolute bottom-0 inset-x-0 p-6 flex flex-col justify-end">
+                        <span class="text-amber-400 text-[10px] font-bold uppercase tracking-wider">Live Events</span>
+                        <h3 class="font-heading font-bold text-2xl text-white mt-1">Event & Stage Moments</h3>
+                        <p class="text-xs text-zinc-400 mt-1 opacity-0 group-hover:opacity-100 transition-opacity">Captured by Tekur Sew Production</p>
+                    </div>
+                </div>
+
+                <!-- Imgur Photo 3 -->
+                <div class="gallery-item portraits relative rounded-2xl overflow-hidden bg-zinc-900 border border-zinc-800 group cursor-pointer h-[480px]" onclick="openLightboxIndex(2)">
+                    <img src="https://i.imgur.com/YYKSUtk.jpg" alt="Tekur Sew Production Showcase 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
+                    <div class="absolute bottom-0 inset-x-0 p-6 flex flex-col justify-end">
+                        <span class="text-cyan-400 text-[10px] font-bold uppercase tracking-wider">Portraits & Celebration</span>
+                        <h3 class="font-heading font-bold text-2xl text-white mt-1">Portrait Photography Session</h3>
+                        <p class="text-xs text-zinc-400 mt-1 opacity-0 group-hover:opacity-100 transition-opacity">Captured by Tekur Sew Production</p>
+                    </div>
+                </div>
+
+                <!-- Imgur Photo 4 -->
+                <div class="gallery-item culture relative rounded-2xl overflow-hidden bg-zinc-900 border border-zinc-800 group cursor-pointer h-[480px]" onclick="openLightboxIndex(3)">
+                    <img src="https://i.imgur.com/RWWwGbQ.jpg" alt="Tekur Sew Production Showcase 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
+                    <div class="absolute bottom-0 inset-x-0 p-6 flex flex-col justify-end">
+                        <span class="text-amber-400 text-[10px] font-bold uppercase tracking-wider">Cultural & Atmosphere</span>
+                        <h3 class="font-heading font-bold text-2xl text-white mt-1">Cultural & Portrait Retouching</h3>
+                        <p class="text-xs text-zinc-400 mt-1 opacity-0 group-hover:opacity-100 transition-opacity">Captured & Edited by Tekur Sew Production</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech & Equipment Showcase Section -->
+    <section id="gear" class="py-20 bg-zinc-950 border-t border-b border-zinc-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-amber-400 text-xs font-bold uppercase tracking-widest">Behind The Lens</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold font-heading">Cinema Grade Hardware</h2>
+                    <p class="text-zinc-400 leading-relaxed text-sm sm:text-base">
+                        Great visual storytelling starts with high-caliber equipment. We use industry-standard mirrorless cinema cameras, prime f/1.2 & f/1.4 lenses, and professional studio lighting setups.
+                    </p>
+                    
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start space-x-4 p-4 rounded-xl bg-zinc-900 border border-zinc-800">
+                            <div class="text-amber-400 text-xl pt-0.5"><i class="fa-solid fa-camera"></i></div>
+                            <div>
+                                <h4 class="font-bold text-sm text-white">Full-Frame 8K / 4K Cameras</h4>
+                                <p class="text-xs text-zinc-400 mt-0.5">Dual-card backup recording for bulletproof event security.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4 p-4 rounded-xl bg-zinc-900 border border-zinc-800">
+                            <div class="text-cyan-400 text-xl pt-0.5"><i class="fa-solid fa-lightbulb"></i></div>
+                            <div>
+                                <h4 class="font-bold text-sm text-white">Studio Softbox Lights</h4>
+                                <p class="text-xs text-zinc-400 mt-0.5">Atmospheric lighting & customizable color accents.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4 p-4 rounded-xl bg-zinc-900 border border-zinc-800">
+                            <div class="text-amber-400 text-xl pt-0.5"><i class="fa-solid fa-sliders"></i></div>
+                            <div>
+                                <h4 class="font-bold text-sm text-white">High-End Color Retouching</h4>
+                                <p class="text-xs text-zinc-400 mt-0.5">Precision post-grading for stunning skin tones and contrast.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7">
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="https://i.imgur.com/fgRKLX7.jpg" alt="Photography setup" class="rounded-2xl h-64 w-full object-cover border border-zinc-800 hover:scale-[1.02] transition-transform">
+                        <img src="https://i.imgur.com/RWWwGbQ.jpg" alt="Studio Retouch Visual" class="rounded-2xl h-64 w-full object-cover border border-zinc-800 hover:scale-[1.02] transition-transform">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-zinc-950 border-t border-zinc-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5">
+                    <div class="relative rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl">
+                        <img src="https://i.imgur.com/YYKSUtk.jpg" 
+                             alt="Tekur Sew Production Photography" 
+                             class="w-full h-[480px] object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <div class="font-heading font-bold text-xl text-white">Tekur Sew Production</div>
+                            <div class="text-xs text-amber-400 font-medium mt-0.5">Event & Podcast Media Specialists</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 space-y-6">
+                    <span class="text-amber-400 text-xs font-bold uppercase tracking-widest">Our Story</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold font-heading">Focused on Energy, Timing & Storytelling</h2>
+                    <p class="text-zinc-400 leading-relaxed text-sm sm:text-base">
+                        Welcome to <strong>Tekur Sew Production</strong>. We are a creative visual media team dedicated to photographing live events, corporate summits, celebratory shoots, and studio podcast setups.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed text-sm sm:text-base">
+                        Our approach is grounded in captured emotion, ambient lighting, and clean framing. Whether you are hosting a high-profile stage event or launching a podcast show, we make sure your work stands out with modern visual quality.
+                    </p>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-t border-zinc-800">
+                        <div class="p-4 rounded-xl bg-zinc-900 border border-zinc-800/80">
+                            <i class="fa-solid fa-camera text-amber-400 text-xl mb-2"></i>
+                            <h4 class="font-bold text-xs uppercase text-white">Pro Setup</h4>
+                            <p class="text-[11px] text-zinc-400">High-Resolution Lenses & Cameras</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-zinc-900 border border-zinc-800/80">
+                            <i class="fa-solid fa-bolt text-cyan-400 text-xl mb-2"></i>
+                            <h4 class="font-bold text-xs uppercase text-white">Studio Lighting</h4>
+                            <p class="text-[11px] text-zinc-400">Softbox & Ambient Atmosphere</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-zinc-900 border border-zinc-800/80">
+                            <i class="fa-solid fa-star text-amber-400 text-xl mb-2"></i>
+                            <h4 class="font-bold text-xs uppercase text-white">Quality Focus</h4>
+                            <p class="text-[11px] text-zinc-400">Precision Edited Deliverables</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Accordion Section -->
+    <section class="py-20 bg-zinc-950/60 border-t border-zinc-800/80">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center space-y-3 mb-12">
+                <span class="text-amber-400 text-xs font-bold uppercase tracking-widest">Got Questions?</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-heading">Frequently Asked Questions</h2>
+            </div>
+
+            <div class="space-y-4" id="faq-accordion">
+                <!-- FAQ 1 -->
+                <div class="rounded-xl bg-cardBg border border-zinc-800 overflow-hidden">
+                    <button onclick="toggleFaq(1)" class="w-full p-5 text-left font-heading font-bold text-base text-white flex justify-between items-center focus:outline-none">
+                        <span>How fast will we receive our edited photos after an event?</span>
+                        <i class="fa-solid fa-chevron-down text-zinc-500 transition-transform duration-300" id="faq-icon-1"></i>
+                    </button>
+                    <div class="hidden px-5 pb-5 text-xs sm:text-sm text-zinc-400 leading-relaxed border-t border-zinc-800/50 pt-4" id="faq-answer-1">
+                        For event coverage, we deliver a quick teaser gallery within 24 hours for social media use. The complete high-resolution gallery is delivered within 3-5 business days via a secure digital cloud link.
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="rounded-xl bg-cardBg border border-zinc-800 overflow-hidden">
+                    <button onclick="toggleFaq(2)" class="w-full p-5 text-left font-heading font-bold text-base text-white flex justify-between items-center focus:outline-none">
+                        <span>Do you bring your own lighting for studio sessions?</span>
+                        <i class="fa-solid fa-chevron-down text-zinc-500 transition-transform duration-300" id="faq-icon-2"></i>
+                    </button>
+                    <div class="hidden px-5 pb-5 text-xs sm:text-sm text-zinc-400 leading-relaxed border-t border-zinc-800/50 pt-4" id="faq-answer-2">
+                        Yes! We supply portable softboxes and studio ambient lights to craft the exact mood and background color palette for your shoot.
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="rounded-xl bg-cardBg border border-zinc-800 overflow-hidden">
+                    <button onclick="toggleFaq(3)" class="w-full p-5 text-left font-heading font-bold text-base text-white flex justify-between items-center focus:outline-none">
+                        <span>Are full commercial usage rights included?</span>
+                        <i class="fa-solid fa-chevron-down text-zinc-500 transition-transform duration-300" id="faq-icon-3"></i>
+                    </button>
+                    <div class="hidden px-5 pb-5 text-xs sm:text-sm text-zinc-400 leading-relaxed border-t border-zinc-800/50 pt-4" id="faq-answer-3">
+                        Absolutely. All delivered photos come with full commercial license rights allowing you to use them across social platforms, websites, and promotional press kits.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 border-t border-zinc-800 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+            <div class="space-y-3">
+                <span class="text-amber-400 text-xs font-bold uppercase tracking-widest">Get In Touch</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold font-heading">Connect With Us</h2>
+                <p class="text-zinc-400 text-sm sm:text-base max-w-xl mx-auto">Reach out directly via phone, Telegram, or Instagram to book your shoot or discuss project details.</p>
+            </div>
+
+            <!-- Direct Contact Info Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
+                <a href="tel:0961009299" class="flex flex-col items-center p-8 rounded-2xl bg-cardBg border border-zinc-800 hover:border-amber-500/50 transition-all group shadow-xl">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-2xl group-hover:bg-amber-500 group-hover:text-black transition-colors mb-4">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <span class="text-xs text-zinc-400 uppercase tracking-wider block font-semibold mb-1">Direct Phone</span>
+                    <span class="text-lg font-bold text-white group-hover:text-amber-400 transition-colors">0961009299</span>
+                </a>
+
+                <a href="https://t.me/Tekur_sw" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center p-8 rounded-2xl bg-cardBg border border-zinc-800 hover:border-cyan-500/50 transition-all group shadow-xl">
+                    <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-2xl group-hover:bg-cyan-500 group-hover:text-black transition-colors mb-4">
+                        <i class="fa-brands fa-telegram"></i>
+                    </div>
+                    <span class="text-xs text-zinc-400 uppercase tracking-wider block font-semibold mb-1">Telegram</span>
+                    <span class="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">@Tekur_sw</span>
+                </a>
+
+                <a href="https://www.instagram.com/tekur_sw?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center p-8 rounded-2xl bg-cardBg border border-zinc-800 hover:border-amber-500/50 transition-all group shadow-xl">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-2xl group-hover:bg-amber-500 group-hover:text-black transition-colors mb-4">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <span class="text-xs text-zinc-400 uppercase tracking-wider block font-semibold mb-1">Instagram</span>
+                    <span class="text-lg font-bold text-white group-hover:text-amber-400 transition-colors">@tekur_sw</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-zinc-950 border-t border-zinc-800/80 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4 text-center sm:text-left">
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 rounded-lg bg-amber-500 flex items-center justify-center font-heading font-bold text-black text-sm">
+                        T
+                    </div>
+                    <span class="font-heading font-bold text-lg text-white">TEKUR SEW PRODUCTION</span>
+                </div>
+                <a href="tel:0961009299" class="text-xs text-amber-400 hover:underline font-semibold sm:border-l sm:border-zinc-800 sm:pl-4">
+                    <i class="fa-solid fa-phone mr-1"></i> 0961009299
+                </a>
+            </div>
+
+            <p class="text-xs text-zinc-500 text-center">
+                © 2026 Tekur Sew Production. High-End Event & Studio Visuals.
+            </p>
+
+            <div class="flex items-center space-x-6 text-zinc-400">
+                <a href="https://www.instagram.com/tekur_sw?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="hover:text-amber-400 transition-colors text-xl" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://t.me/Tekur_sw" target="_blank" rel="noopener noreferrer" class="hover:text-amber-400 transition-colors text-xl" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                <a href="tel:0961009299" class="hover:text-amber-400 transition-colors text-xl" aria-label="Phone Call"><i class="fa-solid fa-phone"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Floating Button -->
+    <a href="#hero" id="back-to-top" class="fixed bottom-6 right-6 w-11 h-11 rounded-full bg-zinc-900 border border-zinc-700 text-amber-400 flex items-center justify-center shadow-2xl opacity-0 pointer-events-none transition-all duration-300 z-40 hover:bg-amber-500 hover:text-black">
+        <i class="fa-solid fa-arrow-up text-sm"></i>
+    </a>
+
+    <!-- Interactive Lightbox Modal with Next/Prev Controls -->
+    <div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-md hidden items-center justify-center p-4">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white hover:text-amber-400 text-3xl font-bold p-2 focus:outline-none z-10">
+            &times;
+        </button>
+
+        <!-- Previous Button -->
+        <button onclick="prevLightboxImage()" class="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-amber-400 text-2xl p-3 rounded-full bg-zinc-900/80 border border-zinc-800 hover:scale-110 transition-transform focus:outline-none">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <!-- Next Button -->
+        <button onclick="nextLightboxImage()" class="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-amber-400 text-2xl p-3 rounded-full bg-zinc-900/80 border border-zinc-800 hover:scale-110 transition-transform focus:outline-none">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <div class="max-w-4xl w-full space-y-4 text-center">
+            <img id="lightbox-img" src="" alt="Portfolio Full View" class="max-h-[75vh] mx-auto rounded-xl object-contain border border-zinc-800 shadow-2xl">
+            <div>
+                <h3 id="lightbox-title" class="font-heading font-bold text-2xl text-white"></h3>
+                <p id="lightbox-desc" class="text-sm text-amber-400 font-medium mt-1"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Gallery Items Database for Lightbox Navigation (Strictly using Imgur URLs)
+        const portfolioItems = [
+            {
+                src: "https://i.imgur.com/LZuiJvf.jpg",
+                title: "Featured Live Coverage",
+                desc: "Tekur Sew Production — Event Photography Showcase"
+            },
+            {
+                src: "https://i.imgur.com/fgRKLX7.jpg",
+                title: "Event & Stage Moments",
+                desc: "Tekur Sew Production — Live Event Photography"
+            },
+            {
+                src: "https://i.imgur.com/YYKSUtk.jpg",
+                title: "Portrait Photography Session",
+                desc: "Tekur Sew Production — Portrait Photography"
+            },
+            {
+                src: "https://i.imgur.com/RWWwGbQ.jpg",
+                title: "Cultural & Portrait Retouching",
+                desc: "Tekur Sew Production — Cultural & Portrait Editing"
+            }
+        ];
+
+        let currentLightboxIndex = 0;
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Filter Gallery Logic
+        function filterGallery(category) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active', 'bg-amber-500', 'text-black');
+                btn.classList.add('bg-zinc-900', 'text-zinc-400');
+            });
+
+            event.target.classList.add('active', 'bg-amber-500', 'text-black');
+            event.target.classList.remove('bg-zinc-900', 'text-zinc-400');
+
+            const items = document.querySelectorAll('.gallery-item');
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Lightbox Functions
+        function openLightbox(src, title, desc) {
+            const modal = document.getElementById('lightbox-modal');
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox-title').innerText = title;
+            document.getElementById('lightbox-desc').innerText = desc;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function openLightboxIndex(index) {
+            currentLightboxIndex = index;
+            const item = portfolioItems[currentLightboxIndex];
+            openLightbox(item.src, item.title, item.desc);
+        }
+
+        function nextLightboxImage() {
+            currentLightboxIndex = (currentLightboxIndex + 1) % portfolioItems.length;
+            const item = portfolioItems[currentLightboxIndex];
+            openLightbox(item.src, item.title, item.desc);
+        }
+
+        function prevLightboxImage() {
+            currentLightboxIndex = (currentLightboxIndex - 1 + portfolioItems.length) % portfolioItems.length;
+            const item = portfolioItems[currentLightboxIndex];
+            openLightbox(item.src, item.title, item.desc);
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById('lightbox-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Keyboard listener for Lightbox (Esc, Arrow Left, Arrow Right)
+        document.addEventListener('keydown', (e) => {
+            const modal = document.getElementById('lightbox-modal');
+            if (!modal.classList.contains('hidden')) {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowRight') nextLightboxImage();
+                if (e.key === 'ArrowLeft') prevLightboxImage();
+            }
+        });
+
+        // FAQ Toggle Logic
+        function toggleFaq(index) {
+            const answer = document.getElementById(`faq-answer-${index}`);
+            const icon = document.getElementById(`faq-icon-${index}`);
+            
+            if (answer.classList.contains('hidden')) {
+                answer.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                answer.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+
+        // Scroll listener for Navbar & Back To Top Button
+        window.addEventListener('scroll', () => {
+            const backToTopBtn = document.getElementById('back-to-top');
+            if (window.scrollY > 400) {
+                backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                backToTopBtn.classList.add('opacity-100');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+                backToTopBtn.classList.remove('opacity-100');
+            }
+        });
+    </script>
+</body>
+</html>
